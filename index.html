@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="/manifest.json">
+    <title>Página Principal</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="secciones/Api1.html">API 1</a></li>
+                <li><a href="secciones/Api2.html">API 2</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Bienvenido a la Página Principal</h1>
+    </main>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker falló al registrarse:', error);
+                    });
+            });
+        }
+    </script>    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Api2.css">
+    <title>API 1</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="Api2.html">API 2</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Pokémon API</h1>
+        <div id="pokemon-container"></div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('pokemon-container');
+                    container.innerHTML = `
+                        <h2>${data.name}</h2>
+                        <img src="${data.sprites.front_default}" alt="${data.name}">
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>
